@@ -1,106 +1,195 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>Countries to Visit on a Budget</title>
+  <title>Countries to Visit on a Budget</title>
 
-    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="static/css/on-budget.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/css/on-budget.css" rel="stylesheet">
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="home">Home</a>
-        <a class="navbar-brand" href="hot">Hot Countries</a>
-        <a class="navbar-brand" href="cold">Cold Countries</a>
-          <a class="navbar-brand" href="budget">Book Your Travel Now!</a>
-
-        </div>
-      </div>
-    </nav>
-    <!-- Page Content -->
+  <!-- Navigation -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
+      <a class="navbar-brand" href="home">Home</a>
+      <a class="navbar-brand" href="hot">Hot Countries</a>
+      <a class="navbar-brand" href="cold">Cold Countries</a>
+      <a class="navbar-brand" href="budget">Book Your Travel Now!</a>
 
-      <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">
-      </h1>
+    </div>
+    </div>
+  </nav>
+  <!-- Page Content -->
+  <div class="container">
 
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="home">Home</a>
-        </li>
-        <li class="breadcrumb-item active">Hot Countries</li>
-      </ol>
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">
+    </h1>
 
-      <!--Amsterdam-->
-      <div class="row">
-        <div class="col-md-7">
-          <a href="#">
-            <img class="img-fluid rounded mb-3 mb-md-0" src="https://www.tours-tickets.com/media/771162/canals_amsterdam_blog_1.jpg?crop=0,0.026290131624765078,0,0&cropmode=percentage&width=1660&height=780&rnd=131402741550000000" alt="">
-          </a>
-        </div>
-        <div class="col-md-5">
-          <h3>Amsterdam</h3>
-          <p>Amsterdam is the perfect place for a great holiday, with its great museums and galleries, lovely eateries, picturesque winding streets and canals, and lively nightlife scene.</p>
-          <ul type="circle">
-            <li> From €55 per night in a B&B </li>
-            <li> Flights as cheap as €50 from Dublin Airport</li>
-            <li> Meals from €7.41 - €12.35 per person</li>
-        </div>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="home">Home</a>
+      </li>
+      <li class="breadcrumb-item active">Hot Countries</li>
+    </ol>
+    <div class="container">
+      <div id="contact-form">
+        <form method="post" action="/bookflight">
+          <p>
+            <fieldset>
+              <legend>Journey Type</legend>
+              <p><label class="choice"> <input type="checkbox" name="one-way" value="one-way"> One way </label></p>
+              <p><label class="choice"> <input type="checkbox" name="return" value="return"> Return </label></p>
+            </fieldset>
+            <p>
+              <label>Fly From
+                <select id="country_from" name="country_from">
+                  <option value="" selected="selected">Select One</option>
+                  <option value="ireland">Ireland</option>
+                  <option value="france">France</option>
+                  <option value="spain">Spain</option>
+                  <option value="US">United States</option>
+                  <option value="canada">Canada</option>
+
+                </select>
+              </label>
+              <label>City From
+                <select id="city_from" name="city_from">
+                  <option value="" selected="selected">Select One</option>
+                  <option value="barcelona">Barcelona</option>
+                  <option value="malaga">Malaga</option>
+                  <option value="VLC">Valencia</option>
+                  <option value="US">Ibiza</option>
+                  <option value="MAD">Madrid</option>
+                </select>
+              </label>
+            </p>
+            <p>
+              <label>Date From
+                <input id="date_from" name="date_from"type="date" required>
+              </label>
+            </p>
+            <label>Fly To
+              <select id="country_to" name="country_to">
+                <option value="" selected="selected">Select One</option>
+                <option value="ireland">Ireland</option>
+                <option value="france">France</option>
+                <option value="spain">Spain</option>
+                <option value="US">United States</option>
+                <option value="canada">Canada</option>
+              </select>
+            </label>
+            <label>City
+              <select id="city_to" name="city_to">
+                <option value="" selected="selected">Select One</option>
+                <option value="barcelona">Barcelona</option>
+                <option value="malaga">Malaga</option>
+                <option value="VLC">Valencia</option>
+                <option value="US">Ibiza</option>
+                <option value="MAD">Madrid</option>
+              </select>
+            </label>
+          </p>
+          <p>
+            <label>Date
+              <input id="date_to" name="date_to" type="date" required>
+            </label>
+          </p>
+          <p>
+            <label>Passengers
+              <select id="Passengers" name="Passengers">
+                <option value="" selected="selected">Number of adults</option>
+                <option value="adult_1">1 Adult</option>
+                <option value="adult_2">2 Adult</option>
+                <option value="adult_3">3 Adult</option>
+                <option value="adult_4">4 Adult</option>
+                <option value="adult_5">5 Adult</option>
+              </select>
+            </label>
+            <select id="Child" name="Child">
+              <option value="" selected="selected">Number of children</option>
+              <option value="children_1">1 child</option>
+              <option value="children_2">2 children</option>
+              <option value="children_3">3 children</option>
+              <option value="children_4">4 children</option>
+              <option value="children_5">5 children</option>
+              </select>
+            </label>
+          </p>
+          <button type="submit" class="btn btn-primary" value="Search" id="submit-button">Search</button>
+        </form>
       </div>
-      <!-- /.row -->
+    </div>
 
-      <hr>
-
-      <!-- Lanzarote -->
-      <div class="row">
-        <div class="col-md-7">
-          <a href="#">
-            <img class="img-fluid rounded mb-3 mb-md-0" src="https://lh-i.global.ssl.fastly.net/images/holidays/d0f0b0b55f5ccb79b6e70f4ba7e49349530c1d7a/lanzarote/puerto-del-carmen/bitacora-lanzarote-club-apartments-1.jpg?width=1600&fit=crop" alt="">
-          </a>
-        </div>
-        <div class="col-md-5">
-          <h3>Lanzarote</h3>
-          <p>There are great beaches, to be sure, but this UNESCO World Biosphere reserve has unique attractions and activities. We're talking camel rides on volcanoes at Timanfaya National Park, or eating at a restaurant in a volcanic cave at Jameos del Agua</p>
-          <ul type="circle">
-            <li>As cheap as €39 per night in a apartment </li>
-            <li>Flights as cheap as €90</li>
-            <li>Meals from €6.50 to €12 </li>
-        </div>
+    <!--Amsterdam-->
+    <div class="row">
+      <div class="col-md-7">
+        <a href="#">
+          <img class="img-fluid rounded mb-3 mb-md-0" src="https://www.tours-tickets.com/media/771162/canals_amsterdam_blog_1.jpg?crop=0,0.026290131624765078,0,0&cropmode=percentage&width=1660&height=780&rnd=131402741550000000" alt="">
+        </a>
       </div>
-      <!-- /.row -->
-
-      <hr>
-
-      <!-- Manchester -->
-      <div class="row">
-        <div class="col-md-7">
-          <a href="#">
-            <img class="img-fluid rounded mb-3 mb-md-0" src="https://www.visitmanchester.com/imageresizer/?image=%2Fdmsimgs%2FRegent_Crescent_dusk_354130438.jpg&action=ProductDetailFullWidth2" alt="">
-          </a>
-        </div>
-        <div class="col-md-5">
-          <h3>Manchester</h3>
-          <p>Are you a Manchester United fan? The Old Trafford must be on your bucket list. Even for shopaholics the Tradford Center is the place to be, luxury shops, resturants and many more activites.</p>
-          <ul type="circle">
-            <li> €33 per night in a hotel</li>
-            <li>Flight can be as cheap as €30</li>
-            <li>Meals  can vary from £5.90 to £15.70 </li>
-        </div>
+      <div class="col-md-5">
+        <h3>Amsterdam</h3>
+        <p>Amsterdam is the perfect place for a great holiday, with its great museums and galleries, lovely eateries, picturesque winding streets and canals, and lively nightlife scene.</p>
+        <ul type="circle">
+          <li> From €55 per night in a B&B </li>
+          <li> Flights as cheap as €50 from Dublin Airport</li>
+          <li> Meals from €7.41 - €12.35 per person</li>
       </div>
-      <!-- /.row -->
+    </div>
+    <!-- /.row -->
 
-      <hr>
+    <hr>
+
+    <!-- Lanzarote -->
+    <div class="row">
+      <div class="col-md-7">
+        <a href="#">
+          <img class="img-fluid rounded mb-3 mb-md-0" src="https://lh-i.global.ssl.fastly.net/images/holidays/d0f0b0b55f5ccb79b6e70f4ba7e49349530c1d7a/lanzarote/puerto-del-carmen/bitacora-lanzarote-club-apartments-1.jpg?width=1600&fit=crop" alt="">
+        </a>
+      </div>
+      <div class="col-md-5">
+        <h3>Lanzarote</h3>
+        <p>There are great beaches, to be sure, but this UNESCO World Biosphere reserve has unique attractions and activities. We're talking camel rides on volcanoes at Timanfaya National Park, or eating at a restaurant in a volcanic cave at Jameos
+          del Agua</p>
+        <ul type="circle">
+          <li>As cheap as €39 per night in a apartment </li>
+          <li>Flights as cheap as €90</li>
+          <li>Meals from €6.50 to €12 </li>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Manchester -->
+    <div class="row">
+      <div class="col-md-7">
+        <a href="#">
+          <img class="img-fluid rounded mb-3 mb-md-0" src="https://www.visitmanchester.com/imageresizer/?image=%2Fdmsimgs%2FRegent_Crescent_dusk_354130438.jpg&action=ProductDetailFullWidth2" alt="">
+        </a>
+      </div>
+      <div class="col-md-5">
+        <h3>Manchester</h3>
+        <p>Are you a Manchester United fan? The Old Trafford must be on your bucket list. Even for shopaholics the Tradford Center is the place to be, luxury shops, resturants and many more activites.</p>
+        <ul type="circle">
+          <li> €33 per night in a hotel</li>
+          <li>Flight can be as cheap as €30</li>
+          <li>Meals can vary from £5.90 to £15.70 </li>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
 
 
 
@@ -108,6 +197,6 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  </body>
+</body>
 
 </html>
