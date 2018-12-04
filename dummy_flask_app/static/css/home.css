@@ -13,6 +13,16 @@ h1 {
 h3 {
    color: Black;
    font-size: 50px;
+   font-family: myFirstFont
+}
+.prime {
+  color: whitesmoke;
+  font-size: 60px;
+  font-family: myFirstFont
+}
+@font-face {
+  font-family: myFirstFont;
+  src: url(../images/28_Days_Later.ttf);
 }
 .carousel-item {
   height: 65vh;

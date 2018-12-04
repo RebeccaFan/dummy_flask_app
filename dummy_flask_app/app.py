@@ -1,5 +1,7 @@
 import requests
 from  flask import Flask, render_template, request, jsonify
+import babel
+import datetime
 
 
 app = Flask(__name__)
@@ -22,9 +24,8 @@ def budget():
 
 @app.route("/bookflight",methods=["POST"])
 def book_flight():
-    formvalues=[]
     form_data = request.form
-    print(form_data['date_from'].format('DD/MM/YYYY'))
+
     # return "All OK"
     # this line prints out the form to the browser
     # payload = {
@@ -34,17 +35,25 @@ def book_flight():
     # 'dateTo': arrow.utcnow().shift(weeks=+3).format('DD/MM/YYYY'),
     # 'partner': 'picky' # default value is 'picky' use it for testing
     # }
-    return jsonify(request.form.to_dict())
 
+    d = form_data['date_from']
+    ff = form_data['city_from']
+    ft = form_data['city_to']
+    df = datetime.datetime.strptime(d,"%Y-%m-%d").strftime("%d/%m/%Y")
+    noa = form_data['Passengers']
+    queryUrl = flightquery(ff, ft , df, noa)
+    response = requests.get(queryUrl)
+    #jsonify(request.form.to_dict())
+    # return jsonify(request.form.to_dict())
+    # content2= (response.content).decode('utf-8')
+    # content="".join(map(chr, response.content)).encode()
+    return response.content
+    # response.contecontent
+#     return datetime.datetime.strptime(date,"%Y-%m-%d").strftime("%d/%m/%Y")
 
-# def flightquery():
-#
-#
-# res = s.search_flights(**payload)
-# endpoint = "https://api.skypicker.com/flights?flyFrom=PRG&to=LGW&dateFrom=18/11/2018&dateTo=12/12/2018&partner=picky"
-# payload = {"dateFrom"=18/11/2018 & dateTo=12/12/2018 & partner=picky}
-#
-# response = requests.get(endpoint, params=payload)
-
+def flightquery(flyFrom, flyTo, dateFrom, numberOfAdults):
+    endpoint = "https://api.skypicker.com/flights?"
+    requestString=endpoint+"flyFrom="+flyFrom+"&to="+flyTo+"&dateFrom="+dateFrom+"&adults="+numberOfAdults+"&max_stopovers=0&partner=picky"
+    return requestString
 if __name__ == "__main__":
     app.run(debug=True)
