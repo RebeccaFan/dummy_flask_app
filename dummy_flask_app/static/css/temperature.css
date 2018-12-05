@@ -1,7 +1,7 @@
 
   body {
-    padding-top: 54px;
-    background: url(../images/pic6.jpg) no-repeat center center fixed;
+    padding-top: 54x;
+    background: url(../images/lightworld.jpg) no-repeat center center fixed;
     height: 100%;
     background-color: #333;
   }
@@ -18,6 +18,13 @@
      color: Black;
      font-size: 50px;
      font-family: myFirstFont
+  }
+  h4 {
+    font-weight: bold;
+    font-family: Trebuchet MS;
+    color: #3e444;
+    font-size: 40px;
+
   }
   .prime {
     color: whitesmoke;
@@ -45,3 +52,7 @@
     color: red;
     font-size: 30px;
   }
+.container-fluid {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
