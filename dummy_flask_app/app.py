@@ -72,7 +72,8 @@ def temperature():
     json_object = r.json()
     temp_k = float(json_object['main']['temp'])
     temp_c = (temp_k - 273.15)
-    return render_template('temperature.html', temp=temp_c)
+    temp_c_rounded = round(temp_c, 2)
+    return render_template('temperature.html', temp=temp_c_rounded)
 
 if __name__ == "__main__":
     app.run(debug=True)
