@@ -1,0 +1,47 @@
+
+  body {
+    padding-top: 54px;
+    background: url(../images/pic6.jpg) no-repeat center center fixed; 
+    height: 100%;
+    background-color: #333;
+  }
+  
+  @media (min-width: 992px) {
+    body {
+      padding-top: 56px;
+    }
+  h1 {
+    text-align: center;
+    font-family: fantasy;
+  }
+  h3 {
+     color: Black;
+     font-size: 50px;
+     font-family: myFirstFont
+  }
+  .prime {
+    color: whitesmoke;
+    font-size: 60px;
+    font-family: myFirstFont
+  }
+  @font-face {
+    font-family: myFirstFont;
+    src: url(../images/28_Days_Later.ttf);
+  }
+  .carousel-item {
+    height: 65vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+  .portfolio-item {
+    margin-bottom: 30px;
+  }
+  .card-header {
+    color: red;
+    font-size: 30px;
+  }

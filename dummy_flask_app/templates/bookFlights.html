@@ -11,7 +11,7 @@
     <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
-    <link href="../static/css/home.css" rel="stylesheet">
+    <link href="../static/css/bookFlight.css" rel="stylesheet">
 
   </head>
 
@@ -27,25 +27,35 @@
         </div>
       </div>
       </nav>
+      <div class="container">
 
-    <header>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          <!-- <li data-target="#carouselExampleIndicators" data-slide-to="3"></li> -->
-        </ol>
-        <div class="carousel-inner" role="listbox">
-          <div class="carousel-item active" style="background-image: url('../static/images/pic5.jpg')">
-            <div class="carousel-caption d-none d-md-block">
-              <h3 class=prime>Owerwhelmed with live...Felling like I don't want to be here anymore...</h3>
+      <h1>Pick Your flight</h1>
+      
+      <ul class="list-group">
+      {% for flight in flights %}
+      <div class="media">
+      <li class="list-group-item">
+
+      <div class="media-body">
+          <div class="media-right">
+              <img class="img-thumbnail" src="{{flight['airlines'][0]}}" alt="">
+              <span>{{ flight['airline_name'] }}</span>
             </div>
-          </div>
+            <h5>{{flight['countryFrom']['name']}} / {{ flight['cityFrom']}} -> {{ flight['countryTo']['name']}} / {{ flight['cityTo']}}</h5>
+            <h5>Departure Time {{ flight['dTimeUTC']}}</h5>
+            <h5>Arrive Time {{ flight['aTimeUTC']}}</h5>
+            <h5>Duration {{ flight['fly_duration'] }}</h5>
+            <h5>Price {{ flight['conversion'] }}</h5>
+            <a href="{{flight['deep_link']}}" class="btn btn-primary">BOOK THIS FLIGHT</a>
+          </li>
+        </div>
+      
+      {% endfor %}
+    </ul>
 
+  </div>
         <script src="../static/vendor/jquery/jquery.min.js"></script>
           <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
-
 </html>
