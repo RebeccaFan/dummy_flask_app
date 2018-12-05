@@ -1,7 +1,7 @@
 
   body {
-    padding-top: 54px;
-    background: url(../images/pic6.jpg) no-repeat center center fixed;
+    padding-top: 54x;
+    background: url(../images/world.png) no-repeat center center fixed;   */
     height: 100%;
     background-color: #333;
   }
@@ -45,3 +45,7 @@
     color: red;
     font-size: 30px;
   }
+.container-fluid {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
