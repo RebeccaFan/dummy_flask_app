@@ -57,7 +57,7 @@ def book_flight():
 
         flight['airlines'][0] = "https://images.kiwi.com/airlines/64x64/"+flight['airlines'][0]+".png"
 
-    return  render_template('bookFLights.html', flights=flights[0:6])
+    return  render_template('bookflights.html', flights=flights[0:6])
 
 def flightquery(flyFrom, flyTo, dateFrom, dateTo, numberOfAdults):
     endpoint = "https://api.skypicker.com/flights?"
